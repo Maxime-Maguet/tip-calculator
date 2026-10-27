@@ -1,4 +1,4 @@
-type resultSectionProps = {
+type ResultSectionProps = {
   tipAmount: number;
   totalPerPerson: number;
   onReset: () => void;
@@ -8,7 +8,7 @@ export default function ResultSection({
   tipAmount,
   totalPerPerson,
   onReset,
-}: resultSectionProps) {
+}: ResultSectionProps) {
   return (
     <section className="bg-dark rounded-2xl p-8 flex flex-col justify-between">
       {/* Ligne Tip Amount */}
@@ -18,7 +18,7 @@ export default function ResultSection({
           <span className="text-grey-400 text-sm">/ person</span>
         </div>
         <span className="text-primary text-4xl sm:text-5xl font-bold">
-          {`$${!tipAmount ? "0.00" : tipAmount}`}
+          ${tipAmount.toFixed(2)}
         </span>
       </div>
 
@@ -29,7 +29,7 @@ export default function ResultSection({
           <span className="text-grey-400 text-sm">/ person</span>
         </div>
         <span className="text-primary text-4xl sm:text-5xl font-bold">
-          {`$${!totalPerPerson ? "0.00" : totalPerPerson}`}
+          ${totalPerPerson.toFixed(2)}
         </span>
       </div>
 

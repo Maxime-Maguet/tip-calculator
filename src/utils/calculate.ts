@@ -1,21 +1,17 @@
 export type TipCalculationInputs = {
-  bill: string;
-  people: string;
-  selectedTip: number | null;
+  bill: number;
+  tipPercent: number;
+  people: number;
 };
-export default function calculateTip({
+
+export function calculateTip({
   bill,
+  tipPercent,
   people,
-  selectedTip,
 }: TipCalculationInputs) {
-  const billValue = Number(bill) || 0;
-  const peopleValue = Number(people) || 0;
-  const tipPercentage = selectedTip ?? 0;
+  const totalTip = bill * (tipPercent / 100);
+  const tipAmount = people > 0 ? totalTip / people : 0;
+  const totalPerPerson = people > 0 ? (bill + totalTip) / people : 0;
 
-  const totalTip = billValue * (tipPercentage / 100);
-  const tipPerPerson = peopleValue > 0 ? totalTip / peopleValue : 0;
-  const totalPerPerson =
-    peopleValue > 0 ? billValue / peopleValue + tipPerPerson : 0;
-
-  return { tipPerPerson, totalPerPerson };
+  return { tipAmount, totalPerPerson };
 }

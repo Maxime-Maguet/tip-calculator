@@ -1,20 +1,23 @@
 type TipButtonProps = {
   percent: number;
-  tipSelected: (percent: number) => void;
   isSelected: boolean;
-  className?: string;
+  onClick: () => void;
 };
 
 export default function TipButton({
   percent,
-  tipSelected,
   isSelected,
+  onClick,
 }: TipButtonProps) {
   return (
     <button
       type="button"
-      onClick={() => tipSelected(percent)}
-      className={` text-bg-pale py-2 px-12  border rounded-md cursor-pointer ${isSelected ? "bg-primary text-dark" : "bg-dark"}`}
+      onClick={onClick}
+      className={`font-bold text-2xl py-3 rounded-lg transition-colors cursor-pointer ${
+        isSelected
+          ? "bg-primary text-dark"
+          : "bg-dark text-white hover:bg-grey-200 hover:text-dark"
+      }`}
     >
       {percent}%
     </button>
