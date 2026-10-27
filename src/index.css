@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typographie */
+  --font-mono: "Space Mono", monospace;
+
+  /* Couleurs (format HSL prêt pour Tailwind) */
+  --color-primary: hsl(172, 67%, 45%); /* Green 400 (Accent / Sélection) */
+  --color-dark: hsl(
+    183,
+    100%,
+    15%
+  ); /* Green 900 (Fond résultats / Texte fort) */
+  --color-grey-500: hsl(186, 14%, 43%); /* Grey 500 (Texte secondaire) */
+  --color-grey-400: hsl(184, 14%, 56%); /* Grey 400 */
+  --color-grey-200: hsl(185, 41%, 84%); /* Grey 200 (Bordures / Inputs) */
+  --color-grey-50: hsl(189, 47%, 97%); /* Grey 50 (Fond global de l'app) */
+}
+
+/* Styles de base pour toute l'application */
+body {
+  background-color: var(--color-grey-50);
+  color: var(--color-grey-500);
+  font-family: var(--font-mono);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
